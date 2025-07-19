@@ -1,0 +1,39 @@
+{
+    "teamMembers": [
+      { "id": 1, "position": { "top": "15%", "left": "8%" }, "imagePath": "/images/image.png" },
+      { "id": 2, "position": { "top": "25%", "left": "20%" }, "imagePath": "/images/image2.webp" },
+      { "id": 3, "position": { "top": "10%", "right": "35%" }, "imagePath": "/images/image3.svg" },
+      { "id": 4, "position": { "top": "20%", "right": "20%" }, "imagePath": "/images/image.png" },
+      { "id": 5, "position": { "top": "30%", "right": "5%" }, "imagePath": "/images/image3.svg" },
+      { "id": 6, "position": { "top": "55%", "right": "15%" }, "imagePath": "/images/image2.webp" },
+      { "id": 7, "position": { "bottom": "20%", "right": "30%" }, "imagePath": "/images/image.png" },
+      { "id": 8, "position": { "bottom": "10%", "right": "8%" }, "imagePath": "/images/image4.svg" },
+      { "id": 9, "position": { "bottom": "20%", "left": "35%" }, "imagePath": "/images/image4.svg" },
+      { "id": 10, "position": { "bottom": "15%", "left": "10%" }, "imagePath": "/images/image3.svg" },
+      { "id": 11, "position": { "top": "50%", "left": "20%" }, "imagePath": "/images/image2.webp" },
+      { "id": 12, "position": { "top": "15%", "left": "40%" }, "imagePath": "/images/image.png" }
+    ],
+    "jobOpenings": [
+
+    ],
+    "jobOpening": [
+      {
+        "id": 1,
+        "title": "Intern Software Engineer",
+        "category": "Software Development",
+        "categoryColor": "green",
+        "location": "Remote",
+        "type": "Full time",
+        "iconType": "Code"
+      },
+      {
+        "id": 1,
+        "title": "Intern Mobile Developer",
+        "category": "Mobile Development",
+        "categoryColor": "orange",
+        "location": "Remote",
+        "type": "Full time",
+        "iconType": "Code"
+      }
+    ]
+  }

@@ -1,0 +1,72 @@
+{
+    "teamMembers": [
+      {
+        "name": "Sachindu Weerakkodi",
+        "role": "Business Analyst",
+        "image": "images/wanushka.png",
+        "socialLinks": {
+          "linkedin": ""
+        }
+      },
+      {
+        "name": "Janith Nilukshan",
+        "role": "Backend Developer",
+        "image": "images/wanushka.png",
+        "socialLinks": {
+          "linkedin": "#"
+        }
+      },
+      {
+        "name": "Ravindu Kavisara",
+        "role": "Full Stack Developer",
+        "image": "images/wanushka.png",
+        "socialLinks": {
+          "linkedin": "#"
+        }
+      },
+      {
+        "name": "Manuja Isiwara",
+        "role": "UI/UX Designer",
+        "image": "images/wanushka.png",
+        "socialLinks": {
+          "linkedin": "#"
+        }
+        },
+      {
+        "name": "Wanushka Lakmal",
+        "role": "Mobile Developer",
+        "image": "images/wanushka.png",
+        "socialLinks": {
+          "linkedin": "wanushka"
+        }
+      }
+    ],
+    "galleryImages": [
+      { "url": "/images/hero-bg.jpg", "title": "Office Space" },
+      { "url": "/images/hero-bg.jpg", "title": "Team Collaboration" },
+      { "url": "/images/hero-bg.jpg", "title": "Innovation Lab" },
+      { "url": "/images/hero-bg.jpg", "title": "Client Meeting" },
+      { "url": "/images/hero-bg.jpg", "title": "Awards Ceremony" },
+      { "url": "/images/hero-bg.jpg", "title": "Community Event" }
+    ],
+    "testimonials": [
+      {
+        "name": "Wanushka Lakmal",
+        "role": "Wanuwa design studio",
+        "quote": "Vespine IT transformed our digital infrastructure with efficiency and vision. Their solutions have driven a 40% increase in operational efficiency.",
+        "image": "/images/image.png"
+      },
+      {
+        "name": "Janith Nilukshan",
+        "role": "Unitech Solutions",
+        "quote": "Working with Vespine has been the best technology decision weve made. Their cybersecurity implementations have given us peace of mind.",
+        "image": "/images/image.png"
+      },
+      {
+        "name": "Isuru Dilshan",
+        "role": "Tech Innovators",
+        "quote": "Vespine IT provides not just technology solutions, but strategic partnerships. Their teams insights have been invaluable to our growth.",
+        "image": "/images/image.png"
+      }
+    ]
+  }
