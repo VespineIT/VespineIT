@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
     <Head>
         <title>Vespine IT</title>
-        <meta name="description" content="Your IT company description" />
+        <meta name="description" content="Driving digital transformation through cutting-edge technology and innovative solutions." />
         <link rel="icon" href="images/vespine.png"/>
     </Head>
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-900 to-gray-800">
