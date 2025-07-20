@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Eye, Brain, Sparkles, Zap, Cpu } from "lucide-react";
+import Link from "next/link";
 import "../app/globals.css";
 
 export default function Home() {
@@ -44,7 +45,7 @@ export default function Home() {
     {
       name: "NextJS",
       imageUrl:
-        "https://static-00.iconduck.com/assets.00/nextjs-icon-1024x1024-5et230l7.png",
+        "https://images.seeklogo.com/logo-png/44/2/next-js-logo-png_seeklogo-449824.png",
     },
     {
       name: "Laravel",
@@ -166,25 +167,29 @@ export default function Home() {
             </motion.p>
 
             <div className="flex justify-center space-x-4">
-              {["Our Services", "Contact Us"].map((btn, index) => (
-                <motion.button
-                  key={btn}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 + index * 0.2 }}
-                  className={`
-                  px-8 py-3 rounded-full transition-colors
-                  ${
-                    index === 0
-                      ? "bg-orange-600 text-white hover:bg-orange-700"
-                      : "bg-transparent border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
-                  }
-                `}
-                >
-                  {btn}
-                </motion.button>
+              {[
+                { text: "Our Services", href: "/services" },
+                { text: "Contact Us", href: "/contact" }
+              ].map((btn, index) => (
+                <Link key={btn.text} href={btn.href}>
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 + index * 0.2 }}
+                    className={`
+                    px-8 py-3 rounded-full transition-colors
+                    ${
+                      index === 0
+                        ? "bg-orange-600 text-white hover:bg-orange-700"
+                        : "bg-transparent border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+                    }
+                  `}
+                  >
+                    {btn.text}
+                  </motion.button>
+                </Link>
               ))}
             </div>
           </motion.div>
@@ -192,13 +197,13 @@ export default function Home() {
       </div>
 
       {/* Services Section */}
-      <section className="container mx-auto py-24 px-4 w-[80%] overflow-hidden">
+      <section className="container mx-auto py-24 px-4 w-[100%] overflow-hidden">
         <div className="text-center mb-20">
           <h2 className="text-5xl font-extrabold text-center text-white mb-16">OUR SOLUTIONS</h2>
           <div className="w-24 h-1 bg-orange-500 mx-auto"></div> {/* Changed from blue-600 */}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 relative max-w-6xl mx-auto">
           {/* Center graphic */}
           <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <motion.div
@@ -208,7 +213,7 @@ export default function Home() {
             >
               <div className="relative">
                 <div className="w-40 h-40 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center">
-                  <Cpu className="text-white w-16 h-16" />
+                  <Cpu className="text-white w-12 h-12" />
                 </div>
                 <motion.div
                   className="absolute w-full h-full top-0 rounded-full border-4 border-orange-200 opacity-70"
@@ -229,28 +234,33 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="bg-white p-8 rounded-xl shadow-lg md:text-right md:pr-16 relative z-20"
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(59, 130, 246, 0.15)",
+              borderColor: "rgba(59, 130, 246, 0.3)",
+            }}
+            className="bg-blue-500/5 backdrop-blur-sm p-8 rounded-xl shadow-md hover:shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 md:text-right md:pr-16 relative z-20 border border-transparent hover:border-blue-500/30 "
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              className="mb-6 inline-block p-4 rounded-full bg-orange-100" // Changed from blue-100
+              whileHover={{ scale: 1.05, rotate: 5, backgroundColor: "rgba(59, 130, 246, 0.1)" }}
+              className="mb-6 inline-block p-4 rounded-full bg-blue-500/15 hover:bg-blue-50 transition-colors duration-300"
             >
-              <Eye className="w-10 h-10 text-orange-600" /> {/* Changed from blue-600 */}
+              <Eye className="w-10 h-10 text-blue-600" />
             </motion.div>
             <div className="flex flex-col md:items-end">
               <div className="flex items-center md:flex-row-reverse mb-4">
-                <span className="text-orange-600 font-bold text-3xl mx-3"> {/* Changed from blue-600 */}
+                <span className="text-blue-600 font-bold text-3xl mx-3">
                   01
                 </span>
-                <h3 className="text-2xl font-bold">Visioning</h3>
+                <h3 className="text-2xl font-bold text-white hover:text-blue-300 transition-colors duration-300">Visioning</h3>
               </div>
-              <p className="text-gray-600 max-w-md md:ml-auto">
+              <p className="text-gray-300 max-w-md md:ml-auto">
                 Sensing, collecting data, optimizing, analysis. We provide
                 comprehensive visualization solutions for your business
                 intelligence needs.
               </p>
             </div>
-            <div className="hidden md:block absolute top-1/2 right-0 w-16 h-2 bg-gradient-to-r from-orange-600 to-transparent transform translate-x-8 -translate-y-1/2"></div> {/* Changed from blue-600 */}
+            <div className="hidden md:block absolute top-1/2 right-0 w-16 h-2 bg-gradient-to-r from-blue-500/60 to-transparent transform translate-x-8 -translate-y-1/2"></div>
           </motion.div>
 
           {/* Service 2 - Top Right */}
@@ -258,27 +268,32 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="bg-white p-8 rounded-xl shadow-lg md:text-left md:pl-16 relative z-20"
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(16, 185, 129, 0.15)",
+              borderColor: "rgba(16, 185, 129, 0.3)",
+            }}
+            className="bg-emerald-500/5 backdrop-blur-sm p-8 rounded-xl shadow-md hover:shadow-2xl hover:shadow-emerald-500/20 transition-all duration-300 md:text-left md:pl-16 relative z-20 border border-transparent hover:border-emerald-500/30"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: -5 }}
-              className="mb-6 inline-block p-4 rounded-full bg-gray-100"
+              whileHover={{ scale: 1.05, rotate: -5, backgroundColor: "rgba(16, 185, 129, 0.1)" }}
+              className="mb-6 inline-block p-4 rounded-full bg-emerald-500/15 hover:bg-emerald-50 transition-colors duration-300"
             >
-              <Brain className="w-10 h-10 text-gray-700" />
+              <Brain className="w-10 h-10 text-emerald-600" />
             </motion.div>
             <div className="flex flex-col">
               <div className="flex items-center mb-4">
-                <span className="text-gray-700 font-bold text-3xl mx-3">
+                <span className="text-emerald-600 font-bold text-3xl mx-3">
                   02
                 </span>
-                <h3 className="text-2xl font-bold">Thinking</h3>
+                <h3 className="text-2xl font-bold text-white hover:text-emerald-300 transition-colors duration-300">Thinking</h3>
               </div>
-              <p className="text-gray-600 max-w-md">
+              <p className="text-gray-300 max-w-md">
                 Predictions, analysis, cognitive processing. Our advanced
                 analytics solutions help you make data-driven decisions.
               </p>
             </div>
-            <div className="hidden md:block absolute top-1/2 left-0 w-16 h-2 bg-gradient-to-l from-gray-600 to-transparent transform -translate-x-8 -translate-y-1/2"></div>
+            <div className="hidden md:block absolute top-1/2 left-0 w-16 h-2 bg-gradient-to-l from-emerald-500/60 to-transparent transform -translate-x-8 -translate-y-1/2"></div>
           </motion.div>
 
           {/* Service 3 - Bottom Left */}
@@ -286,27 +301,32 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-white p-8 rounded-xl shadow-lg md:text-right md:pr-16 relative z-20"
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(147, 51, 234, 0.15)",
+              borderColor: "rgba(147, 51, 234, 0.3)",
+            }}
+            className="bg-purple-500/5 backdrop-blur-sm p-8 rounded-xl shadow-md hover:shadow-2xl hover:shadow-purple-500/20 transition-all duration-300 md:text-right md:pr-16 relative z-20 border border-transparent hover:border-purple-500/30"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: 5 }}
-              className="mb-6 inline-block p-4 rounded-full bg-orange-100" // Changed from purple-100
+              whileHover={{ scale: 1.05, rotate: 5, backgroundColor: "rgba(147, 51, 234, 0.1)" }}
+              className="mb-6 inline-block p-4 rounded-full bg-purple-500/15 hover:bg-purple-50 transition-colors duration-300"
             >
-              <Sparkles className="w-10 h-10 text-orange-600" /> {/* Changed from purple-600 */}
+              <Sparkles className="w-10 h-10 text-purple-600" />
             </motion.div>
             <div className="flex flex-col md:items-end">
               <div className="flex items-center md:flex-row-reverse mb-4">
-                <span className="text-orange-600 font-bold text-3xl mx-3"> {/* Changed from purple-600 */}
+                <span className="text-purple-600 font-bold text-3xl mx-3">
                   03
                 </span>
-                <h3 className="text-2xl font-bold">Creating</h3>
+                <h3 className="text-2xl font-bold text-white hover:text-purple-300 transition-colors duration-300">Creating</h3>
               </div>
-              <p className="text-gray-600 max-w-md md:ml-auto">
+              <p className="text-gray-300 max-w-md md:ml-auto">
                 Generating art, videos, music, and more. Our creative solutions
                 bring your ideas to life with cutting-edge technology.
               </p>
             </div>
-            <div className="hidden md:block absolute top-1/2 right-0 w-16 h-2 bg-gradient-to-r from-orange-600 to-transparent transform translate-x-8 -translate-y-1/2"></div> {/* Changed from purple-600 */}
+            <div className="hidden md:block absolute top-1/2 right-0 w-16 h-2 bg-gradient-to-r from-purple-500/60 to-transparent transform translate-x-8 -translate-y-1/2"></div>
           </motion.div>
 
           {/* Service 4 - Bottom Right */}
@@ -314,27 +334,32 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="bg-white p-8 rounded-xl shadow-lg md:text-left md:pl-16 relative z-20"
+            whileHover={{ 
+              scale: 1.02,
+              backgroundColor: "rgba(245, 158, 11, 0.15)",
+              borderColor: "rgba(245, 158, 11, 0.3)",
+            }}
+            className="bg-amber-500/5 backdrop-blur-sm p-8 rounded-xl shadow-md hover:shadow-2xl hover:shadow-amber-500/20 transition-all duration-300 md:text-left md:pl-16 relative z-20 border border-transparent hover:border-amber-500/30"
           >
             <motion.div
-              whileHover={{ scale: 1.05, rotate: -5 }}
-              className="mb-6 inline-block p-4 rounded-full bg-orange-100" // Changed from blue-100
+              whileHover={{ scale: 1.05, rotate: -5, backgroundColor: "rgba(245, 158, 11, 0.1)" }}
+              className="mb-6 inline-block p-4 rounded-full bg-amber-500/15 hover:bg-amber-50 transition-colors duration-300"
             >
-              <Zap className="w-10 h-10 text-orange-600" /> {/* Changed from blue-600 */}
+              <Zap className="w-10 h-10 text-amber-600" />
             </motion.div>
             <div className="flex flex-col">
               <div className="flex items-center mb-4">
-                <span className="text-orange-600 font-bold text-3xl mx-3"> {/* Changed from blue-600 */}
+                <span className="text-amber-600 font-bold text-3xl mx-3">
                   04
                 </span>
-                <h3 className="text-2xl font-bold">Automating</h3>
+                <h3 className="text-2xl font-bold text-white hover:text-amber-300 transition-colors duration-300">Automating</h3>
               </div>
-              <p className="text-gray-600 max-w-md">
+              <p className="text-gray-300 max-w-md">
                 Automating and accelerating world processes. Our automation
                 solutions streamline your workflows and boost productivity.
               </p>
             </div>
-            <div className="hidden md:block absolute top-1/2 left-0 w-16 h-2 bg-gradient-to-l from-orange-600 to-transparent transform -translate-x-8 -translate-y-1/2"></div> {/* Changed from blue-600 */}
+            <div className="hidden md:block absolute top-1/2 left-0 w-16 h-2 bg-gradient-to-l from-amber-500/60 to-transparent transform -translate-x-8 -translate-y-1/2"></div>
           </motion.div>
         </div>
       </section>
@@ -344,13 +369,14 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-gray-100 py-16 w-[85%] mx-auto rounded-3xl"
+        className="bg-gray-900/80 backdrop-blur-sm py-16 w-[85%] mx-auto rounded-3xl"
       >
         <div className="container mx-auto px-4 w-[95%] mx-auto">
           <div className="text-4xl font-bold text-center mb-12">
-            <h2 className="text-5xl font-extrabold text-center mb-16">
+            <h2 className="text-5xl font-extrabold text-center text-white mb-16">
               TECH STACK
             </h2>
+            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
           </div>
 
           <motion.div
@@ -369,7 +395,7 @@ export default function Home() {
             {techLogos.map((tech, index) => (
               <motion.div
                 key={index}
-                className="flex flex-col items-center w-24 h-24 grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex flex-col items-center w-24 h-24 md:grayscale md:hover:grayscale-0 transition-all duration-300"
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   visible: {

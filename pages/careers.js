@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Briefcase, Code, ShieldCheck, CloudCog, Search, MapPin, Clock, ArrowRightIcon, ChevronDownIcon } from 'lucide-react';
+import { Briefcase, Code, ShieldCheck, CloudCog, Search, MapPin, Clock, ArrowRightIcon, ChevronDownIcon, Lightbulb, Heart, TrendingUp, Users } from 'lucide-react';
 import careerData from '../data/careerData.json';
 
 const iconComponents = {
@@ -68,6 +68,13 @@ export default function Careers() {
       pink: '#ec4899'
     };
     return colorMap[color] || '#64748b';
+  };
+
+  // Add this function at the top of your component
+  const handleOpenApplication = () => {
+    // Replace with your Google Form URL
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSduqpp-4eIuKvRuxTHWFg8GtDCHTWym_V6sOiJbSVVf5zhWog/viewform?usp=dialog';
+    window.open(googleFormUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -143,19 +150,19 @@ export default function Careers() {
               {
                 title: "Innovation First",
                 description: "We embrace new ideas and technologies to solve complex challenges.",
-                icon: "/api/placeholder/60/60",
+                icon: Lightbulb,
                 color: "#3b82f6" // blue
               },
               {
                 title: "Work-Life Balance",
                 description: "We believe in flexible schedules that accommodate your personal life.",
-                icon: "/api/placeholder/60/60",
+                icon: Heart,
                 color: "#10b981" // emerald
               },
               {
                 title: "Growth Mindset",
                 description: "Continuous learning and personal development are at our core.",
-                icon: "/api/placeholder/60/60",
+                icon: TrendingUp,
                 color: "#f97316" // orange
               }
             ].map((value, index) => (
@@ -188,7 +195,7 @@ export default function Careers() {
                           border: `1px solid ${value.color}60` 
                         }}
                       >
-                        <img src={value.icon} alt="" className="w-6 h-6" />
+                        <value.icon size={24} style={{ color: value.color }} />
                       </div>
                       <h3 className="text-xl font-bold text-white transition-colors duration-300 group-hover:text-white">{value.title}</h3>
                     </div>
@@ -245,12 +252,31 @@ export default function Careers() {
           {/* Job Listings */}
           <div className="space-y-6">
             {filteredJobs.length === 0 ? (
-              <div className="text-center py-16 fade-in-element" style={{
+              <div className="text-center py-20 fade-in-element" style={{
                 opacity: 0,
                 transform: 'translateY(30px)',
                 transition: 'opacity 0.8s ease, transform 0.8s ease'
               }}>
-                <p className="text-gray-300 text-lg">No Any Job Vacancies Now</p>
+                <div className="relative bg-gray-800 bg-opacity-50 backdrop-blur-sm rounded-2xl p-12 border border-gray-700 max-w-2xl mx-auto">
+                  {/* Background decoration */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-4 right-4 w-16 h-16 border border-orange-400/30 rounded-full"></div>
+                    <div className="absolute bottom-4 left-4 w-12 h-12 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-lg rotate-45"></div>
+                  </div>
+                  
+                  <div className="relative">
+                    {/* Icon */}
+                    <div className="w-20 h-20 bg-gradient-to-br from-orange-500/20 to-orange-600/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-orange-500/30">
+                      <Users size={40} className="text-orange-500" />
+                    </div>
+                    
+                    {/* Main message */}
+                    <h3 className="text-2xl font-bold text-white mb-4">No Job Vacancies Available</h3>
+                    <p className="text-gray-300 text-lg mb-6 leading-relaxed">
+                      We don't have any open positions at the moment, but we're always growing and looking for talented individuals to join our team.
+                    </p>
+                  </div>
+                </div>
               </div>
             ) : (
               filteredJobs.map((job, index) => {
@@ -345,7 +371,10 @@ export default function Careers() {
                 We're always looking for talented individuals to join our team.
                 Send us your resume and we'll keep it on file.
               </p>
-              <button className="px-8 py-4 rounded-xl bg-white text-orange-600 font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <button 
+                onClick={handleOpenApplication}
+                className="px-8 py-4 rounded-xl bg-white text-orange-600 font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
                 Submit Open Application
               </button>
             </div>

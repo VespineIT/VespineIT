@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { ChevronDownIcon, ArrowRightIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
 
 export default function Services() {
   const [activeService, setActiveService] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
+
+  // Add this function to handle navigation
+  const handleStartProject = () => {
+    router.push('/contact');
+  };
 
   useEffect(() => {
     setIsVisible(true);
@@ -49,7 +56,7 @@ export default function Services() {
       description: "User-centered design solutions that combine aesthetics with intuitive functionality.",
       icon: "/images/uiux.png",
       color: "#f97316", // orange
-      features: ["Figma", "Adobe XD", "User Research", "Prototyping", "Accessibility", "Visual Identity"],
+      features: ["Figma", "Adobe XD", "Photoshop",  "Illustrator","User Research", "Prototyping"],
     },
     {
       id: 4,
@@ -57,7 +64,7 @@ export default function Services() {
       description: "Strategic marketing campaigns to increase your brand visibility and drive qualified leads.",
       icon: "/images/digital.png",
       color: "#8b5cf6", // violet
-      features: ["SEO", "Content Marketing", "Social Media", "Email Campaigns", "Analytics", "PPC Advertising"],
+      features: ["SEO", "Content Marketing", "Social Media", "Email Campaigns", "Analytics", "Marketing Campaigns"],
     },
     {
       id: 5,
@@ -241,23 +248,7 @@ export default function Services() {
                       ))}
                     </div>
 
-                    {/* Action button */}
-                    <div className="absolute bottom-8 left-8 right-8">
-                      <div className="flex justify-between items-center">
-                        <a 
-                          href="#" 
-                          className="inline-flex items-center text-sm font-medium transition-all duration-300 group-hover:translate-x-1"
-                          style={{ color: service.color }}
-                        >
-                        </a>
-                        <div 
-                          className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                          style={{ background: `${service.color}20` }}
-                        >
-                          <ArrowRightIcon className="w-4 h-4" style={{ color: service.color }} />
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
               </div>
@@ -357,7 +348,10 @@ export default function Services() {
               <p className="text-orange-100 mb-8 max-w-2xl mx-auto">
                 Let's collaborate to build something amazing that exceeds expectations and drives real business results.
               </p>
-              <button className="px-8 py-4 rounded-xl bg-white text-orange-600 font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <button 
+                onClick={handleStartProject}
+                className="px-8 py-4 rounded-xl bg-white text-orange-600 font-medium hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
                 Start a Project
               </button>
             </div>
