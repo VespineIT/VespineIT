@@ -97,8 +97,7 @@ export default function Contact() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
               >
-                Discover our innovative solutions designed to transform your
-                business in the digital era.
+                We are here to help you with your digital transformation journey. Reach out to us for any inquiries or project discussions.
               </motion.p>
 
               <motion.div
