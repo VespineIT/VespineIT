@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ArrowRightIcon, ChevronDownIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,11 @@ export default function Contact() {
     buildPlan: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init("1Jt5AKKIYQdICq3G3"); // Replace with your EmailJS public key
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,15 +38,23 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      // EmailJS template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        message_about: formData.messageAbout,
+        message: formData.buildPlan,
+        
+      };
 
-      if (response.ok) {
+      const response = await emailjs.send(
+        'service_m90upoo',    // Replace with your EmailJS service ID
+        'template_fi9ebsg',   // Replace with your EmailJS template ID
+        templateParams
+      );
+
+      if (response.status === 200) {
         alert('Message sent successfully!');
         setFormData({
           name: '',
@@ -54,7 +68,7 @@ export default function Contact() {
       }
     } catch (error) {
       alert('Error sending message. Please try again.');
-      console.error('Error:', error);
+      console.error('EmailJS Error:', error);
     } finally {
       setIsSubmitting(false);
     }
