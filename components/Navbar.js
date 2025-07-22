@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const router = useRouter();
 
   // Handle scroll effect
   useEffect(() => {
@@ -21,6 +23,24 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Update active section based on current route
+  useEffect(() => {
+    const path = router.pathname;
+    if (path === "/") {
+      setActiveSection("home");
+    } else if (path === "/about") {
+      setActiveSection("about");
+    } else if (path === "/services") {
+      setActiveSection("services");
+    } else if (path === "/careers") {
+      setActiveSection("careers");
+    } else if (path === "/products") {
+      setActiveSection("products");
+    } else if (path === "/contact") {
+      setActiveSection("contact");
+    }
+  }, [router.pathname]);
 
   return (
     <>
@@ -51,7 +71,11 @@ const Navbar = () => {
                 >
                   <span>{item.icon}</span>
                 </Link>
-                <span className="absolute left-14 top-2 bg-orange-600 text-white px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-sm whitespace-nowrap">
+                <span className={`absolute left-14 top-2 bg-orange-600 text-white px-3 py-1 rounded-full text-sm whitespace-nowrap transition-all duration-300 ${
+                  activeSection === item.name.toLowerCase() 
+                    ? 'opacity-100 translate-x-0' 
+                    : 'opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0'
+                }`}>
                   {item.name}
                 </span>
               </div>
@@ -59,11 +83,16 @@ const Navbar = () => {
             <div className="relative group">
               <Link 
                 href="/contact" 
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-orange-600 text-white shadow-md hover:bg-orange-700 transition-all duration-300"
+                className={`w-10 h-10 flex items-center justify-center rounded-full ${activeSection === 'contact' ? 'bg-orange-600 text-white' : 'bg-orange-600 text-white hover:bg-orange-700'} shadow-md transition-all duration-300`}
+                onClick={() => setActiveSection('contact')}
               >
                 <ChevronRight size={18} />
               </Link>
-              <span className="absolute left-14 top-2 bg-orange-600 text-white px-3 py-1 rounded-full opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300 text-sm whitespace-nowrap">
+              <span className={`absolute left-14 top-2 bg-orange-600 text-white px-3 py-1 rounded-full text-sm whitespace-nowrap transition-all duration-300 ${
+                activeSection === 'contact' 
+                  ? 'opacity-100 translate-x-0' 
+                  : 'opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0'
+              }`}>
                 Let's Talk
               </span>
             </div>
