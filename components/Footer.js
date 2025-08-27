@@ -22,21 +22,21 @@ const Footer = () => {
           </p>
           <div className="flex space-x-4">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1CEwjVNvgb/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 transition-colors"
             >
               <Facebook size={24} />
             </a>
-            <a
+            {/* <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-pink-500 transition-colors"
             >
               <Instagram size={24} />
-            </a>
+            </a> */}
             <a
               href="https://www.linkedin.com/company/vespineit"
               target="_blank"
@@ -45,14 +45,14 @@ const Footer = () => {
             >
               <Linkedin size={24} />
             </a>
-            <a
+            {/* <a
               href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-red-400 transition-colors"
             >
               <Youtube size={24} />
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -172,12 +172,12 @@ const Footer = () => {
               +94 78 758 6563
               </a>
             </div>
-            <div className="flex items-center space-x-2">
+            {/* <div className="flex items-center space-x-2">
               <MapPin size={20} className="text-red-400" />
               <span className="text-gray-300">
                 Negombo Road, Narammala, Sri Lanka
               </span>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
