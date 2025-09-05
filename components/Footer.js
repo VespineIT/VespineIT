@@ -172,12 +172,12 @@ const Footer = () => {
               +94 78 758 6563
               </a>
             </div>
-            {/* <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2">
               <MapPin size={20} className="text-red-400" />
               <span className="text-gray-300">
-                Negombo Road, Narammala, Sri Lanka
+                Colombo, Sri Lanka
               </span>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
